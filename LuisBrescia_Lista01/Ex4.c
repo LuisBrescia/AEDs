@@ -10,5 +10,5 @@ int main (){
     scanf("%d", &n);
     printf("%d", ++n);  
 
-    return 0;
+    return 1;
 }
