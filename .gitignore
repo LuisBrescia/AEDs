@@ -1,1 +1,7 @@
+# ignora executáveis e arquivos compactados
+*.exe
 *.7z
+*.zip
+*.rar
+*.tar
+*.gz
