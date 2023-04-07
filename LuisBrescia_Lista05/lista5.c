@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <math.h>
 
+// Testando coneão do girhub
+
 // Funções
 void imprimePrimos(int a);
 int cubo(int a);
