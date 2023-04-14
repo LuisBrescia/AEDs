@@ -1,3 +1,7 @@
-# Listas AED
+#  **AEDs**
 
-> Falta a lista 4, quem tiver feito ela aí fique a vontade para fazer um fork e abrir um pull request que eu vou aceitar.
+#### ***Exercícios e projetos da matéria Algoritmo e estrutura de dados.***
+
+A idéia é salvar neste repositório, tudo desenvolvido na matéria, com o intuito consultas. 
+
+> Caso queira colaborar com esse repositório, realiza um fork pelo github, e abra uma Pull Request. Caso seu pull request seja aceito, subirá 1 ponto na conquista pull shark, e entrará como contribuidor deste repositório.
