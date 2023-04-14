@@ -1,16 +1,16 @@
-#include<stdio.h>
-#include<math.h>
-#include<stdbool.h>
-#include<conio.h>
-#include<string.h>
-#include<stdbool.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+#include <conio.h>
+#include <string.h>
+#include <stdbool.h>
+#include <stdlib.h>
 
 #ifndef FUNCTIONS_H_INCLUDED
 #define FUNCTIONS_H_INCLUDED
 
 /*
-Descrisao: Calcula o cubo de um numero
+Descrição: Calcula o cubo de um numero
 Parametros (entradas): float n 
 Retorno (saida): float
 */
@@ -20,7 +20,7 @@ float function1(float n)
 }
 
 /*
-Descrisao: calcular a media de cinco numeros
+Descrição: calcular a media de cinco numeros
 Parametros (entradas): um vetor float de cinco casas
 Retorno (saida): float
 */
@@ -34,7 +34,7 @@ float function2(float v[5])
 }
 
 /*
-Descrisao: imprimir numeros primos
+Descrição: imprimir numeros primos
 Parametros (entradas): um numero inteiro n
 Retorno (saida): void
 */
@@ -66,7 +66,7 @@ void function3(int n)
 }
 
 /*
-Descrisao: identifica o maior e menor numero de uma sequencia
+Descrição: identifica o maior e menor numero de uma sequencia
 Parametros (entradas): void
 Retorno (saida): void
 */
@@ -107,7 +107,7 @@ void function4()
 }
 
 /*
-Descrisao: calcula o diametro de uma circunferencia
+Descrição: calcula o diametro de uma circunferencia
 Parametros (entradas): uma valor float representando o raio
 Retorno (saida): float
 */
@@ -117,7 +117,7 @@ float function5_diametro(float r)
 }
 
 /*
-Descrisao: calcula o perimetro de uma circunferencia
+Descrição: calcula o perimetro de uma circunferencia
 Parametros (entradas): uma valor float representando o raio 
 Retorno (saida): float
 */
@@ -127,7 +127,7 @@ float function5_circunferencia(float r)
 }
 
 /*
-Descrisao: calcula a area de uma circunferencia
+Descrição: calcula a area de uma circunferencia
 Parametros (entradas): uma valor float representando o raio
 Retorno (saida): float
 */
@@ -137,7 +137,7 @@ float function5_area(float r)
 }
 
 /*
-Descrisao: resolver uma operacao booleana
+Descrição: resolver uma operacao booleana
 Parametros (entradas): tres valores booleanos
 Retorno (saida): bool
 */
@@ -147,7 +147,7 @@ bool function6(bool a, bool b, bool c)
 }
 
 /*
-Descrisao: identifica o k-esimo digito de um numero
+Descrição: identifica o k-esimo digito de um numero
 Parametros (entradas): um inteiro representando o numero e outro inteiro pra identificar qual digito
 Retorno (saida): int
 */
@@ -162,7 +162,7 @@ int function7(int n, int k)
 
 }
 /*
-Descrisao: imprimir uma sequencia numerica entre 2 limites somada de um valor incremental
+Descrição: imprimir uma sequencia numerica entre 2 limites somada de um valor incremental
 Parametros (entradas): dois ints representando os limites e outro definindo o valor incremental
 Retorno (saida): void
 */
@@ -177,7 +177,7 @@ void function8(int limInf, int limSup, int incre)
 }
 
 /*
-Descrisao: Resolver uma somatorio predefinido
+Descrição: Resolver uma somatorio predefinido
 Parametros (entradas): void
 Retorno (saida): double
 */
@@ -198,7 +198,7 @@ double function9()
 }
 
 /*
-Descrisao: calcular a distancia de Manhattan entre o ponto definido pelo usuario e outros n pontos aleatorios
+Descrição: calcular a distancia de Manhattan entre o ponto definido pelo usuario e outros n pontos aleatorios
 Parametros (entradas): dois inteiros representando as cordenadas de um ponto (x,y) e outro para definir a quantidade de pontos que sera gerados aleatoriamente 
 Retorno (saida): int
 */
@@ -216,7 +216,7 @@ int function10(int x, int y, int n)
 }
 
 /*
-Descrisao: Caucular o valor de delta dado os coeficientes de uma equacao do segundo grau
+Descrição: Caucular o valor de delta dado os coeficientes de uma equacao do segundo grau
 Parametros (entradas): tres floats cada um representando um coeficiente de uma equacao do segundo grau
 Retorno (saida): float
 */
