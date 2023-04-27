@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 // * Funções
 
@@ -32,6 +33,14 @@ Faça um outro procedimento que receba um vetor preenchido com as notas, calcule
 turma e conte quantos alunos obtiveram nota acima da média. Esse procedimento deve exibir a
 média (duas casas depois da virgula) e o resultado da contagem. Faça um programa que declare as
 devidas variáveis e acione os procedimentos. (LISTA7Q2)*/
+void preencheVetor (float* vetor, int tam) {
+    srand(0);
+    for (int i = 0; i < tam; i++){
+        vetor[i] = rand() % 11;
+        printf("%.2f\n", vetor[i]);
+    }
+}
+
 void LISTA7_Q2(float *vetor, int tam){
 
     int i, cont = 0;
@@ -78,7 +87,7 @@ sistema para validação das placas. Crie uma função booleana que receba como 
 string e verifique se a placa está no padrão. Crie um programa que receba inúmeras placas se a
 placa esteja correta deve imprimir "correto" ou "incorreto" e encerre o processo quando o valor da
 string for "fechar". (LISTA7Q4)*/
-int LISTA7_Q4(char *str){
+void LISTA7_Q4(char *str){
 
     int i;
 
@@ -97,6 +106,23 @@ int LISTA7_Q4(char *str){
         }
     }
     return 1;
+}
+
+void verificaPlaca(){
+
+    char placa[7];
+    int resultado;
+
+    do {
+        fflush(stdin);
+        gets(placa);
+        resultado = 1;
+        if(resultado == 1) {
+            printf("correto\n");
+        } else {
+            printf("incorreto\n");
+        }
+    } while (strcmp(placa, "fechar"));
 }
 
 /*5. Faça um procedimento que leia infinitos nomes e exiba o primeiro e o último nome em ordem
@@ -232,7 +258,7 @@ inferior a 15°C, nem superior a 40°C. Faça um programa que armazene as temper
 dia de janeiro em um vetor (de 31 posições), calcule e imprima:
 • A menor e a maior temperatura ocorrida (duas casas decimais depois da virgula);
 • A temperatura média (duas casas decimais depois da virgula);
-• O número de dias nos quais a temperatura foi inferior à temperatura média. 
+• O número de dias nos quais a temperatura foi inferior à temperatura média.
 (LISTA7Q11)*/
 void LISTA7_Q11(float *temperaturas, int tam){
 
