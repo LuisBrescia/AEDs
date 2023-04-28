@@ -133,7 +133,7 @@ que faça as devidas declarações e acione os módulos para exemplificar o seu 
 void LISTA7_Q6(float *vetor, int tam){
 
     int i, j = 0;
-    float *novo = malloc(tam * sizeof(float));
+    float *novo = (float*) malloc(tam * sizeof(float));
 
     for(i = 0; i < tam; i++){
         if(vetor[i] < 0){
@@ -156,10 +156,11 @@ int LISTA7_Q7(char *str, char c){
     int i, cont = 0;
 
     for(i = 0; i < strlen(str); i++){
-        if(str[i] == c){
+        if( str[i] == c || str[i] == c + 32 || str[i] == c - 32 ){
             cont++;
         }
     }
+
     return cont;
 }
 
@@ -173,7 +174,7 @@ void LISTA7_Q8(int *vetor1, int *vetor2, int tam){
 
     int i, j = 0;
 
-    int *novo = malloc(sizeof(int) * tam*2);
+    int *novo = (int *) malloc(sizeof(int) * tam*2);
 
     for(i = 0; i < tam*2; i++){
         if(i % 2 == 0){
