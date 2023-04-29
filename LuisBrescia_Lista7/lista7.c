@@ -12,8 +12,8 @@ int main(){
     scanf("%d", &opcao);
 
     // Crie um switch do modelo lista6.c
-
-    switch (opcao) {
+    
+    do{ switch (opcao) {
         case 1:
             fflush(stdin);
             gets(str);
@@ -35,20 +35,14 @@ int main(){
             break;
 
         case 4:
-            verificaPlaca();
+            LISTA7_Q4();
             break;
-        /*
+        
         case 5:
-            // Fa�a um programa que leia uma string e imprima a string sem os caracteres especiais.
-            // Exemplo: Entrada: "Luis Brescia 123" Sa�da: "Luis Brescia 123"
-            fflush(stdin);
-            gets(str);
-            printf("%s\n", str);
-            LISTA7_Q5(str);
-            printf("%s", str);
+            LISTA7_Q5();
             break;
 
-        case 6:
+        /*case 6:
             // Fa�a um programa que leia uma string e imprima a string sem os caracteres especiais.
             // Exemplo: Entrada: "Luis Brescia 123" Sa�da: "Luis Brescia 123"
             fflush(stdin);
@@ -121,7 +115,7 @@ int main(){
         default:
             printf("Opcao invalida");
             break;
-    }
+    }}while (opcao != 0);
 
     return 0;
 }

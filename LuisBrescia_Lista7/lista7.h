@@ -87,7 +87,7 @@ sistema para validação das placas. Crie uma função booleana que receba como 
 string e verifique se a placa está no padrão. Crie um programa que receba inúmeras placas se a
 placa esteja correta deve imprimir "correto" ou "incorreto" e encerre o processo quando o valor da
 string for "fechar". (LISTA7Q4)*/
-void LISTA7_Q4(char *str){
+int verificaPlaca(char *str){
 
     int i;
 
@@ -95,12 +95,12 @@ void LISTA7_Q4(char *str){
         return 0;
     }
     for(i = 0; i < strlen(str); i++){
-        if(i == 3){
-            if(str[i] >= '0' && str[i] <= '9'){
+        if(i == 3 || i == 5 || i == 6){
+            if((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')){
                 return 0;
             }
-        }else{
-            if(str[i] >= 'A' && str[i] <= 'Z'){
+        } else {
+            if(str[i] >= '0' && str[i] <= '9'){
                 return 0;
             }
         }
@@ -108,7 +108,7 @@ void LISTA7_Q4(char *str){
     return 1;
 }
 
-void verificaPlaca(){
+void LISTA7_Q4(){
 
     char placa[7];
     int resultado;
@@ -116,7 +116,8 @@ void verificaPlaca(){
     do {
         fflush(stdin);
         gets(placa);
-        resultado = 1;
+        
+        resultado = verificaPlaca(placa);
         if(resultado == 1) {
             printf("correto\n");
         } else {
@@ -127,7 +128,7 @@ void verificaPlaca(){
 
 /*5. Faça um procedimento que leia infinitos nomes e exiba o primeiro e o último nome em ordem
 alfabética. Utilize como flag, a palavra "stop", para finalizar a leitura dos nomes. Faça um programa
-que declare as devidas variáveis e acione o procedimento (LISTA7Q5)*/
+que declare as devidas variáve is e acione o procedimento (LISTA7Q5)*/
 void LISTA7_Q5(){
 
     char nome[50], primeiro[50], ultimo[50];
@@ -138,6 +139,7 @@ void LISTA7_Q5(){
     strcpy(ultimo, nome);
 
     while(strcmp(nome, "stop") != 0){
+
         if(strcmp(nome, primeiro) < 0){
             strcpy(primeiro, nome);
         }
@@ -232,8 +234,7 @@ void LISTA7_Q9(char *str1, char *str2, char *str3){
 }
 
 /*10. Faça uma função que receba uma frase de string como parâmetro e elimine, caso houver uma
-sequência de espaços contínuos indesejados. Faça um programa que faça as devidas declarações e
-acione os módulos para exemplificar o seu uso (LISTA7Q10)*/
+sequência de espaços contínuos indesejados. (LISTA7Q10)*/
 void LISTA7_Q10(char *str){
 
     int i, j = 0;
