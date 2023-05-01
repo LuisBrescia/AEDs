@@ -1,37 +1,39 @@
 #include "lista7.h"
+#define TAM 10
 
 int main(){
 
     // Fa�a um switch que executa cada fun��o da lista 7
     // de acordo com a op��o do usu�rio
+    int opcao, vogais[5];
+    char **string, c;
+    float vetor[10], dias[31];
+    float* vetorNovo;
 
-    int tam;
-    int opcao;
-    char str[30], str2[30];
-    float turma[10];
-    scanf("%d", &opcao);
+    string = (char**) malloc(3 * sizeof(char*));
+    for (int i = 0; i < 3; i++) { string[i] = (char*) malloc(30 * sizeof(char)); }
 
-    // Crie um switch do modelo lista6.c
-    
-    do{ switch (opcao) {
-        case 1:
+    do{ 
+        printf("Digite a funcao que deseja usar:\n");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+        case 1:  
             fflush(stdin);
-            gets(str);
-            printf("%d\n", LISTA7_Q1(str));
+            fgets(string[0], 30, stdin);
+            printf("%d\n", LISTA7_Q1(string[0]));
             break;
 
         case 2:
-            tam = 10;
-            preencheVetor(turma, tam);
-            LISTA7_Q2(turma, tam);
+            LISTA7_Q2(vetor, TAM);
             break;
 
         case 3:
             fflush(stdin);
-            gets(str);
+            fgets(string[0], 30, stdin);
             fflush(stdin);
-            gets(str2);
-            LISTA7_Q3(str, str2);
+            fgets(string[1], 30, stdin);
+            LISTA7_Q3(string[0], string[1]);
             break;
 
         case 4:
@@ -42,80 +44,56 @@ int main(){
             LISTA7_Q5();
             break;
 
-        /*case 6:
-            // Fa�a um programa que leia uma string e imprima a string sem os caracteres especiais.
-            // Exemplo: Entrada: "Luis Brescia 123" Sa�da: "Luis Brescia 123"
-            fflush(stdin);
-            gets(str);
-            printf("%s\n", str);
-            LISTA7_Q6(str);
-            printf("%s", str);
+        case 6:
+            preencheVetor(vetor, TAM);
+            vetorNovo = LISTA7_Q6(vetor, TAM);
             break;
 
         case 7:
-            // Fa�a um programa que leia uma string e imprima a string sem os caracteres especiais.
-            // Exemplo: Entrada: "Luis Brescia 123" Sa�da: "Luis Brescia 123"
             fflush(stdin);
-            gets(str);
-            printf("%s\n", str);
-            LISTA7_Q7(str);
-            printf("%s", str);
+            fgets(string[0], 30, stdin);
+            scanf("%c", &c);
+            printf("%d", LISTA7_Q7(string[0], c));
             break;
 
         case 8:
-            // Fa�a um programa que leia uma string e imprima a string sem os caracteres especiais.
-            // Exemplo: Entrada: "Luis Brescia 123" Sa�da: "Luis Brescia 123"
-            fflush(stdin);
-            gets(str);
-            printf("%s\n", str);
-            LISTA7_Q8(str);
-            printf("%s", str);
+            LISTA7_Q8(vetor, vetorNovo, TAM);
             break;
 
         case 9:
-            // Fa�a um programa que leia uma string e imprima a string sem os caracteres especiais.
-            // Exemplo: Entrada: "Luis Brescia 123" Sa�da: "Luis Brescia 123"
             fflush(stdin);
-            gets(str);
-            printf("%s\n", str);
-            LISTA7_Q9(str);
-            printf("%s", str);
+            fgets(string[0], 30, stdin);
+            fgets(string[1], 30, stdin);
+            fgets(string[2], 30, stdin);
+            LISTA7_Q9(string);
             break;
 
         case 10:
-            // Fa�a um programa que leia uma string e imprima a string sem os caracteres especiais.
-            // Exemplo: Entrada: "Luis Brescia 123" Sa�da: "Luis Brescia 123"
             fflush(stdin);
-            gets(str);
-            printf("%s\n", str);
-            LISTA7_Q10(str);
-            printf("%s", str);
+            fgets(string[0], 30, stdin);
+            LISTA7_Q10(string[0]);
             break;
 
         case 11:
-            // Fa�a um programa que leia uma string e imprima a string sem os caracteres especiais.
-            // Exemplo: Entrada: "Luis Brescia 123" Sa�da: "Luis Brescia 123"
-            fflush(stdin);
-            gets(str);
-            printf("%s\n", str);
-            LISTA7_Q11(str);
-            printf("%s", str);
+            preencheVetor(dias, 31);
+            LISTA7_Q11(dias);
             break;
 
         case 12:
-            // Fa�a um programa que leia uma string e imprima a string sem os caracteres especiais.
-            // Exemplo: Entrada: "Luis Brescia 123" Sa�da: "Luis Brescia 123"
             fflush(stdin);
-            gets(str);
-            printf("%s\n", str);
-            LISTA7_Q12(str);
-            printf("%s", str);
+            fgets(string[0], 30, stdin);
+            LISTA7_Q12(string[0], vogais);
             break;
-        */
+
+        case 0:
+            printf("PROGRAMA FINALIZADO\n");
+            break;
+
         default:
-            printf("Opcao invalida");
+            printf("INEXISTENTE\n");
             break;
-    }}while (opcao != 0);
+        }
+    }while(opcao != 0);
 
     return 0;
 }
