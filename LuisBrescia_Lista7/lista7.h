@@ -14,13 +14,14 @@ int isLetter (char c) {
 void preencheVetor (float* vetor, int tam) {
     srand(0);
     for (int i = 0; i < tam; i++){
-        vetor[i] = rand() % 11;
-        printf("%.2f\n", vetor[i]);
+        vetor[i] = rand() % 21 - 10;
     }
 }
 // Função que exibe todos os elementos de um vetor
 void exibeVetor (float* vetor, int tam) {
-    for (int i = 0; i < tam; i++){ printf("%f\n", vetor[i]); }
+    for (int i = 0; i < tam; i++){ 
+        printf("%f\n", vetor[i]); 
+    }
 }
 // Função que intercala 2 vetores
 float* intercalaVetor (float* vetor1, float* vetor2, int tam) {
@@ -38,12 +39,13 @@ float* intercalaVetor (float* vetor1, float* vetor2, int tam) {
 /*1. Faça uma função que receba por parâmetro uma string e 
 retorna o número de caracteres alfanuméricos. (LISTA7Q1)*/
 int LISTA7_Q1(char *str){
+
     int i, cont = 0;
     for (i = 0; i < strlen(str); i++) { 
         if (isLetter(str[i])){ 
             cont++; 
-            } 
-        }
+        } 
+    }
     return cont;
 }
 /*2. Faça um procedimento que receba um vetor preenchido com as notas, calcule a média da
@@ -94,37 +96,38 @@ string for "fechar". (LISTA7Q4)*/
 int verificaPlaca(char *str){
 
     int i;
-    if(strlen(str) != 7){
-        return 0;
-    }
+    str[7] = '\0';
+    if(strlen(str) != 7){return 0;}
     for(i = 0; i < strlen(str); i++){
-        if(i == 3 || i == 5 || i == 6){
-            if((str[i] >= 'A' && str[i] <= 'Z')){
+        if((i == 3 || i == 5) || i == 6){
+            if(isLetter(str[i])){
                 return 0;
             }
+        printf("%c entrou 1cond %d\n", str[i], i);
         } else {
             if(str[i] >= '0' && str[i] <= '9'){
                 return 0;
             }
+        printf("%c entrou 2cond %d\n", str[i], i);
         }
     }
     return 1;
 }
 void LISTA7_Q4(){
 
-    char placa[7];
+    char placa[8];
     int resultado;
-    do {
+    while(1) {
         fflush(stdin);
-        gets(placa);
-        
+        fgets(placa, 8, stdin);
+        if (strcmp(placa, "fechar\n") == 0) {break;}
         resultado = verificaPlaca(placa);
         if(resultado == 1) {
             printf("correto\n");
         } else {
             printf("incorreto\n");
         }
-    } while (strcmp(placa, "fechar") != 0);
+    } 
 }
 
 /*5. Faça um procedimento que leia infinitos nomes e exiba o primeiro e o último nome em ordem
@@ -133,7 +136,6 @@ que declare as devidas variáve is e acione o procedimento (LISTA7Q5)*/
 void LISTA7_Q5(){
 
     char nome[50], primeiro[50], ultimo[50];
-
     printf("Digite um nome: ");
     scanf("%s", nome);
     strcpy(primeiro, nome);
@@ -157,6 +159,7 @@ void LISTA7_Q5(){
 negativos deste vetor para um novo vetor (sem deixar elementos vazios entre os valores copiados), 
 retornando este vetor como resultado.(LISTA7Q6).*/
 float* LISTA7_Q6(float *vetor, int tam){
+
     int i = 0, j = 0;
     float *novo = (float*) malloc(tam * sizeof(float));
     for(i = 0; i < tam; i++){
@@ -165,8 +168,6 @@ float* LISTA7_Q6(float *vetor, int tam){
             j++;
         }
     }
-    // Na primeira posição será salvo o tamanho do vetor
-    novo[0] = j;
     exibeVetor(novo, j);
 
     return novo;
@@ -207,7 +208,7 @@ void LISTA7_Q8(float *vetor1, float *vetor2, int tam){
 programa que faça as devidas declarações e acione os módulos para exemplificar o seu uso (LISTA7Q9)*/
 void LISTA7_Q9(char **string){
     char str[100];
-    sprintf(str, "%s%s%s", str[0], str[1], str[2]);
+    sprintf(str, "%s %s %s", string[0], string[1], string[2]);
     printf("String concatenada: %s\n", str);
 }
 
@@ -218,22 +219,14 @@ void LISTA7_Q10(char *str){
     int i, j = 0;
     char str2[100];
     for(i = 0; i < strlen(str); i++){
-        
-        if (str[i] != ' ') {
+        if (str[i] != ' ' || str[i + 1] != ' ') {
             str2[j] = str[i];
             j++;
-        } else {
-            if (str[i + 1] != ' ') {
-                str2[j] = str[i];
-                j++;
-            }
         }
-        i++;
     }
     str2[j] = '\0';
-    strcpy(str, str2);
 
-    printf("String sem espacos: %s\n", str);
+    printf("String sem espacos: %s\n", str2);
 }
 
 /*11. Em uma cidade, sabe-se hipoteticamente que, em janeiro de 2023, não ocorreu temperatura

@@ -7,7 +7,7 @@ int main(){
     // de acordo com a op��o do usu�rio
     int opcao, vogais[5];
     char **string, c;
-    float vetor[10], dias[31];
+    float vetor[10], vetor2[10], dias[31];
     float* vetorNovo;
 
     string = (char**) malloc(3 * sizeof(char*));
@@ -53,18 +53,22 @@ int main(){
             fflush(stdin);
             fgets(string[0], 30, stdin);
             scanf("%c", &c);
-            printf("%d", LISTA7_Q7(string[0], c));
+            printf("%d\n", LISTA7_Q7(string[0], c));
             break;
 
         case 8:
-            LISTA7_Q8(vetor, vetorNovo, TAM);
+            LISTA7_Q8(vetor, vetor2, TAM);
             break;
 
         case 9:
+            // ? Essas linhas são para remover o \n do fgets
             fflush(stdin);
             fgets(string[0], 30, stdin);
+            string[0][strlen(string[0]) - 1] = '\0';
             fgets(string[1], 30, stdin);
             fgets(string[2], 30, stdin);
+            string[1][strlen(string[1]) - 1] = '\0';
+
             LISTA7_Q9(string);
             break;
 
@@ -80,6 +84,7 @@ int main(){
             break;
 
         case 12:
+            vogais[0] = vogais[1] = vogais[2] = vogais[3] = vogais[4] = 0;
             fflush(stdin);
             fgets(string[0], 30, stdin);
             LISTA7_Q12(string[0], vogais);
