@@ -159,37 +159,34 @@ int quadradoMagico(int** matriz) {
     return 1;
 }
 // Questão 7
-void matrixZ(int** matrizZ) {
-    int i;
-    int** matrix = (int**) malloc(sizeof(int*) * 10);
-    for (i = 0; i < 10; i++) {
-        matrix[i] = (int *) malloc(sizeof(int) * 10);
-    }
+void matrixZ(int** matrix) {
+    
+    int i, temp;
     // * Trocar linha 2 com a linha 8
-    copiaMatriz(matrix, matrizZ);
     for (i = 0; i < 10; i++) {
-        matrizZ[1][i] = matrix[7][i];
-        matrizZ[7][i] = matrix[1][i]; 
+        temp = matrix[1][i];
+        matrix[1][i] = matrix[7][i];
+        matrix[7][i] = temp; 
     }
     // * Trocar coluna 4 com a coluna 10
-    copiaMatriz(matrix, matrizZ);
     for (i = 0; i < 10; i++) {
-        matrizZ[i][3] = matrix[i][9];
-        matrizZ[i][9] = matrix[i][3]; 
+        temp = matrix[i][3];
+        matrix[i][3] = matrix[i][9];
+        matrix[i][9] = temp;
     }
     // * Trocar a diagonal principal com a diagonal secundária
-    copiaMatriz(matrix, matrizZ);
     for (i = 0; i < 10; i++) {
-        matrizZ[i][i] = matrix[i][9 - i]; 
-        matrizZ[i][9 - i] = matrix[i][i]; 
+        temp = matrix[i][i]; 
+        matrix[i][i] = matrix[i][9 - i]; 
+        matrix[i][9 - i] = temp;
     }
     // * Trocar linha 5 com coluna 10    
-    copiaMatriz(matrix, matrizZ);
     for (i = 0; i < 10; i++) {
-        matrizZ[4][i] = matrix[i][9]; 
-        matrizZ[i][9] = matrix[4][i]; 
+        temp = matrix[4][i];
+        matrix[4][i] = matrix[i][9]; 
+        matrix[i][9] = temp; 
     }
 
-    exibeMatriz(matrizZ);
+    exibeMatriz(matrix);
 }
 // Questão 8
