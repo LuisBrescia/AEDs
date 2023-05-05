@@ -6,6 +6,9 @@ int main() {
     int** matrizA = criaMatriz();
     int** matrizB = criaMatriz();
     int* vetor = (int*) malloc(sizeof(int) * C);
-    
+
+    exibeMatriz(matrizA);
+    escadaUp(matrizA);
+
     return 0;
 }

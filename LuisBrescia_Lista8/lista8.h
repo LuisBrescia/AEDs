@@ -20,6 +20,18 @@ int **distribuicaoEletronicaMatriz(int **matrizA, int **matrizB) {
 
     return matrizP;   
 }
+void matrizTransposta(int **matriz) {
+    int temp;
+    int **matrizT = (int**) malloc(sizeof(int*) * C);
+    for (int i = 0; i < C; i++) {
+        matrizT[i] = (int*) malloc(sizeof(int) * L);
+    }
+    for (int i = 0; i < C; i++) {
+        for (int j = 0; j < L; j++) {
+            matrizT[i][j] = matriz[j][i];
+        }
+    }
+}
 
 int** criaMatriz(){
 
@@ -159,34 +171,74 @@ int quadradoMagico(int** matriz) {
     return 1;
 }
 // Questão 7
-void matrixZ(int** matrix) {
-    
+void matrizZ(int** matriz) {
+
     int i, temp;
     // * Trocar linha 2 com a linha 8
     for (i = 0; i < 10; i++) {
-        temp = matrix[1][i];
-        matrix[1][i] = matrix[7][i];
-        matrix[7][i] = temp; 
+        temp = matriz[1][i];
+        matriz[1][i] = matriz[7][i];
+        matriz[7][i] = temp; 
     }
     // * Trocar coluna 4 com a coluna 10
     for (i = 0; i < 10; i++) {
-        temp = matrix[i][3];
-        matrix[i][3] = matrix[i][9];
-        matrix[i][9] = temp;
+        temp = matriz[i][3];
+        matriz[i][3] = matriz[i][9];
+        matriz[i][9] = temp;
     }
     // * Trocar a diagonal principal com a diagonal secundária
     for (i = 0; i < 10; i++) {
-        temp = matrix[i][i]; 
-        matrix[i][i] = matrix[i][9 - i]; 
-        matrix[i][9 - i] = temp;
+        temp = matriz[i][i]; 
+        matriz[i][i] = matriz[i][9 - i]; 
+        matriz[i][9 - i] = temp;
     }
     // * Trocar linha 5 com coluna 10    
     for (i = 0; i < 10; i++) {
-        temp = matrix[4][i];
-        matrix[4][i] = matrix[i][9]; 
-        matrix[i][9] = temp; 
+        temp = matriz[4][i];
+        matriz[4][i] = matriz[i][9]; 
+        matriz[i][9] = temp; 
     }
 
-    exibeMatriz(matrix);
+    exibeMatriz(matriz);
 }
 // Questão 8
+void matrizMultiplicadora(int **matriz) {
+    for (int i = 1; i < L; i++) {
+        for (int j = 0; j < C; j++) {
+            matriz[i][j] = matriz[0][j] * (i + 1); 
+        }
+    }
+}
+
+// Questão 9
+int escadaDown(int **matriz) {
+
+    int soma = 0;
+
+    for (int i = 0; i < L; i++) {
+        for (int j = 0; j <= i; j++) {
+            soma += matriz[i][j];
+            printf("%3d", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    return soma;
+}
+
+// Questão 10
+int escadaUp(int **matriz) {
+
+    int soma = 0, cont = 0;
+
+    for (int i = 0; i < L; i++) {
+        for (int j = L - 1; j > i; j--) {
+            soma += matriz[i][j];
+            cont++;
+            printf("%3d", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    return soma/cont;
+}
