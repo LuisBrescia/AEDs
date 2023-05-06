@@ -209,7 +209,6 @@ void matrizMultiplicadora(int **matriz) {
         }
     }
 }
-
 // Questão 9
 int escadaDown(int **matriz) {
 
@@ -225,7 +224,6 @@ int escadaDown(int **matriz) {
 
     return soma;
 }
-
 // Questão 10
 int escadaUp(int **matriz) {
 
