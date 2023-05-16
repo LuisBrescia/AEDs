@@ -73,16 +73,19 @@ void leMatriz(int **matriz, int linha, int coluna){
 
 // Questão 1
 int maiorElemento(int **matriz){
-
+    int coordenadas[2];
     int maior = matriz[0][0];
     for (int i = 0; i < L; i++) {
         for (int j = 0; j < C; j++) {
             if (matriz[i][j] > maior) {
                 maior = matriz[i][j];
+                coordenadas[0] = i;
+                coordenadas[1] = j;
             }
         }
     }
-
+    printf("Maior elemento: %d\n", maior);
+    printf("Coordenadas: [%d][%d]\n", coordenadas[0], coordenadas[1]);
     return maior;
 }
 // Questão 2
@@ -93,7 +96,7 @@ int diagonalMatriz(int **matriz, int *vetor) {
         soma += matriz[i][i];
         vetor[i] = matriz[i][i];
     }
-
+    printf("Soma da diagonal principal: %d\n", soma);
     return soma;
 }
 // Questão 3
@@ -103,7 +106,7 @@ void mesclaMatriz(int **matrizA, int **matrizB) {
     for (int i = 0; i < L; i++) {
         for (int j = 0; j < C; j++) {
             matrizC[i][j] = matrizA[i][j] + matrizB[i][j];
-            printf("%3d", matrizC[i][j]);
+            printf("%5d", matrizC[i][j]);
         }
         printf("\n");
     }
@@ -119,9 +122,11 @@ int **produtoMatriz(int **matrizA, int **matrizB) {
     for (int i = 0; i < L; i++) {
         for (int j = 0; j < C; j++) {
             matrizP[i][j] = matrizA[i][j] * matrizB[j][i];
+            printf("%8d", matrizP[i][j]);
         }
+        printf("\n");
     }
-
+    printf(separador);
     return matrizP;
 }
 // Questão 5
@@ -135,9 +140,12 @@ int permutaMatriz(int** matriz) {
             if (matriz[i][j] == 1) { acc++; }
             if (matriz[j][i] == 1) { acl++; }
         }
-        if ((acc > 1 || acl > 1) || (acc < 1 || acl < 1)) { return 0; }   
+        if ((acc > 1 || acl > 1) || (acc < 1 || acl < 1)) { 
+            printf("Nao permutacao.\n");
+            return 0; 
+        }   
     }
-
+    printf("Permutacao.\n");
     return 1;
 }
 // Questão 6
@@ -147,7 +155,6 @@ int quadradoMagico(int** matriz) {
     for (int i = 0; i < C; i++) {
         soma += matriz[0][i];
     }
-    
     for (int i = 0; i < L; i++) {
         tempC = tempL = 0;
         tempD += matriz[i][i];
@@ -160,7 +167,6 @@ int quadradoMagico(int** matriz) {
             return 0;
         }
     }
-
     if (tempD != soma) {
         printf("Nao quadrado.\n");
         return 0;
@@ -205,8 +211,10 @@ void matrizZ(int** matriz) {
 void matrizMultiplicadora(int **matriz) {
     for (int i = 1; i < L; i++) {
         for (int j = 0; j < C; j++) {
-            matriz[i][j] = matriz[0][j] * (i + 1); 
+            matriz[i][j] = matriz[0][j] * (i); 
+            printf("%5d", matriz[i][j]);
         }
+        printf("\n");
     }
 }
 // Questão 9

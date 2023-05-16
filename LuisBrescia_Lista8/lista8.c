@@ -14,12 +14,18 @@ int main() {
     do {
         system("cls");
         printf("\nMenu de Exercicios!\n"
-        "1 - Questao 1 \n2 - Questao 2 \n"
-        "3 - Questao 3 \n4 - Questao 4 \n"
-        "5 - Questao 5 \n6 - Questao 6 \n"
-        "7 - Questao 7 \n8 - Questao 8 \n"
-        "9 - Questao 9 \n10 - Questao 10 \n"
-        "0 - Sair \n-1 - Exibe Matriz \n"
+        "1 - Maior elemento e sua posicao\n"
+        "2 - Soma da Diagonal principal\n"
+        "3 - Soma matrizes\n"
+        "4 - Multiplica matrizes\n"
+        "5 - Verifica matriz permutacao\n"
+        "6 - Verifica matriz quadrada\n"
+        "7 - Bagunca matriz segundo comandos\n"
+        "8 - Copia 1 linha e multiplica ela pelas respectivas linhas \n"
+        "9 - Escada subindo \n"
+        "10 - Escada descendo \n"
+        "0 - Sair \n"
+        "-1 - Exibe Matriz \n"
         "Digite um numero da opcao acima: \n");
         scanf("%d", &opcao);
         switch (opcao) {
@@ -29,7 +35,7 @@ int main() {
             break;
 
         case 1:
-            printf("%d\n", maiorElemento(matrizA));
+            maiorElemento(matrizA);
             break;
 
         case 2:
